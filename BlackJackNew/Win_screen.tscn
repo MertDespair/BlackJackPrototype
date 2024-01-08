@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bwysqpv3rr4f3"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1602.0
+offset_bottom = 1002.0
+theme_override_font_sizes/font_size = 123
+text = "You Win"
+horizontal_alignment = 1
+vertical_alignment = 1

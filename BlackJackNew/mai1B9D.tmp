@@ -1,0 +1,121 @@
+[gd_scene load_steps=10 format=3 uid="uid://dy8cbacb7masc"]
+
+[ext_resource type="Script" path="res://main_game_loop.gd" id="1_5w5nb"]
+[ext_resource type="Texture2D" uid="uid://cxwmab7d14kbv" path="res://Playing Cards/card-back4.png" id="1_fm0kk"]
+[ext_resource type="Script" path="res://Deck.gd" id="2_eoudt"]
+[ext_resource type="Script" path="res://PlayerHand.gd" id="4_agt6v"]
+[ext_resource type="Script" path="res://Label.gd" id="6_3gdv3"]
+[ext_resource type="Script" path="res://AnimationPlayer.gd" id="6_eggow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktl37"]
+size = Vector2(97, 145)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5chn8"]
+size = Vector2(96, 145)
+
+[sub_resource type="Curve2D" id="Curve2D_g8apv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1446, 150.688, 0, 0, 0, 0, 654.915, 898.653)
+}
+point_count = 2
+
+[node name="MainGameLoop" type="Node2D"]
+script = ExtResource("1_5w5nb")
+
+[node name="Deck" type="Area2D" parent="."]
+position = Vector2(1446, 182)
+script = ExtResource("2_eoudt")
+
+[node name="DeckSprite" type="Sprite2D" parent="Deck"]
+texture = ExtResource("1_fm0kk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_ktl37")
+
+[node name="PlayerHand" type="Area2D" parent="."]
+position = Vector2(653, 898)
+script = ExtResource("4_agt6v")
+
+[node name="Card1" type="Sprite2D" parent="PlayerHand"]
+
+[node name="Card2" type="Sprite2D" parent="PlayerHand"]
+position = Vector2(110, 0)
+
+[node name="Card3" type="Sprite2D" parent="PlayerHand"]
+position = Vector2(220, 0)
+
+[node name="Card4" type="Sprite2D" parent="PlayerHand"]
+position = Vector2(330, 0)
+
+[node name="Card5" type="Sprite2D" parent="PlayerHand"]
+position = Vector2(440, 0)
+
+[node name="Card6" type="Sprite2D" parent="PlayerHand"]
+position = Vector2(550, 0)
+
+[node name="Card7" type="Sprite2D" parent="PlayerHand"]
+position = Vector2(660, 0)
+
+[node name="Card8" type="Sprite2D" parent="PlayerHand"]
+position = Vector2(770, 0)
+
+[node name="Card1Coll" type="CollisionShape2D" parent="PlayerHand"]
+shape = SubResource("RectangleShape2D_5chn8")
+
+[node name="Card2Coll" type="CollisionShape2D" parent="PlayerHand"]
+position = Vector2(110, 0)
+shape = SubResource("RectangleShape2D_5chn8")
+
+[node name="Card3Coll" type="CollisionShape2D" parent="PlayerHand"]
+position = Vector2(220, 0)
+shape = SubResource("RectangleShape2D_5chn8")
+
+[node name="Card4Coll" type="CollisionShape2D" parent="PlayerHand"]
+position = Vector2(330, 0)
+shape = SubResource("RectangleShape2D_5chn8")
+
+[node name="Card5Coll" type="CollisionShape2D" parent="PlayerHand"]
+position = Vector2(440, 0)
+shape = SubResource("RectangleShape2D_5chn8")
+
+[node name="Card6Coll" type="CollisionShape2D" parent="PlayerHand"]
+position = Vector2(550, 0)
+shape = SubResource("RectangleShape2D_5chn8")
+
+[node name="Card7Coll" type="CollisionShape2D" parent="PlayerHand"]
+position = Vector2(660, 0)
+shape = SubResource("RectangleShape2D_5chn8")
+
+[node name="Card8Coll" type="CollisionShape2D" parent="PlayerHand"]
+position = Vector2(770, 0)
+shape = SubResource("RectangleShape2D_5chn8")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-6, 36)
+scale = Vector2(1.00471, 0.958101)
+curve = SubResource("Curve2D_g8apv")
+
+[node name="AnimationPlayer" type="PathFollow2D" parent="Path2D"]
+position = Vector2(1446, 150.688)
+rotation = 2.3842
+script = ExtResource("6_eggow")
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/AnimationPlayer"]
+rotation = -2.38412
+texture = ExtResource("1_fm0kk")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1488.0
+offset_top = 832.0
+offset_right = 1581.0
+offset_bottom = 961.0
+script = ExtResource("6_3gdv3")
+
+[connection signal="DrawnCardScore" from="." to="Label" method="_on_main_game_loop_drawn_card_score"]
+[connection signal="PlayerHandFull" from="." to="Path2D/AnimationPlayer" method="_on_main_game_loop_player_hand_full"]
+[connection signal="Click_On_Deck" from="Deck" to="." method="_on_deck_click_on_deck"]
+[connection signal="Click_On_Deck" from="Deck" to="Path2D/AnimationPlayer" method="_on_deck_click_on_deck"]
+[connection signal="mouse_entered" from="Deck" to="Deck" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Deck" to="Deck" method="_on_mouse_exited"]
+[connection signal="card_move_finish" from="Path2D/AnimationPlayer" to="." method="_on_animation_player_card_move_finish"]

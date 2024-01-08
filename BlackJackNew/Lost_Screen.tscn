@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cwycb2dljjbrg"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1603.0
+offset_bottom = 1003.0
+theme_override_font_sizes/font_size = 123
+text = "You loose"
+horizontal_alignment = 1
+vertical_alignment = 1
