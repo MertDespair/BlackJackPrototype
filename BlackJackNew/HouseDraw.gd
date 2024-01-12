@@ -23,10 +23,10 @@ func _process(delta):
 
 func _on_main_game_loop_house_hand_full():
 	Draw = false
-	pass # Replace with function body.
+
 
 
 func _on_main_game_loop_play_animation_house():
 	if Draw:
 		MoveCard = true
-	pass # Replace with function body.
+

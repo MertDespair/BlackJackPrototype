@@ -11,6 +11,7 @@ var ClickedOnDeck = false
 var HouseHasDrawn = true
 var GameLost = false
 var GameWon = false
+var HouseWantsDraw = true
 
 var CardDeck = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
 				 17, 18, 19,20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
@@ -35,7 +36,7 @@ var DeckTexture = ["card-clubs-1", "card-clubs-2", "card-clubs-3", "card-clubs-4
  "card-spades-8", "card-spades-9", "card-spades-10", "card-spades-11", "card-spades-12",
  "card-spades-13"]
 
-signal CardDrawn
+#signal CardDrawn
 signal PlayerHandFull
 signal HouseHandFull
 signal DrawnCardScore(value)
@@ -93,7 +94,7 @@ func GameRestart():
 
 
 func DrawCard():
-	CardDrawn.emit()
+	#CardDrawn.emit()
 	return CardDeck.pop_front()
 
 
@@ -108,10 +109,11 @@ func _process(delta):
 			DrawnCard = DrawCard()
 			PlayAnimation.emit()
 			ClickedOnDeck = false
-		if GameState == 2 and HouseHasDrawn:
+		if GameState == 2 and HouseHasDrawn and HouseWantsDraw:
 			DrawnCard = DrawCard()
 			PlayAnimationHouse.emit()
 			HouseHasDrawn = false
+			HouseWantsDraw = false
 	else:
 		GameRestart()
 		
@@ -197,16 +199,11 @@ func _on_house_draw_card_move_finish():
 
 func _on_label_bet_placed():
 	GameState = 1
-	pass # Replace with function body.
-
-
-
+	
 
 func _on_button_button_pressed():
 	if GameState == 1:
 		GameState = 2
-	pass # Replace with function body.
-
 
 func _on_score_board_game_lost():
 	GameLost = true
@@ -214,3 +211,8 @@ func _on_score_board_game_lost():
 func _on_score_board_game_won():
 	GameWon = true
 
+
+
+func _on_score_board_house_wants_draw():
+	HouseWantsDraw = true
+	pass # Replace with function body.

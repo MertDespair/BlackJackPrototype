@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dy8cbacb7masc"]
+[gd_scene load_steps=37 format=3 uid="uid://dy8cbacb7masc"]
 
 [ext_resource type="Script" path="res://main_game_loop.gd" id="1_5w5nb"]
 [ext_resource type="Texture2D" uid="uid://cxwmab7d14kbv" path="res://Playing Cards/card-back4.png" id="1_fm0kk"]
@@ -8,6 +8,29 @@
 [ext_resource type="Script" path="res://LineEdit.gd" id="7_jbdvw"]
 [ext_resource type="Script" path="res://Button.gd" id="7_u6ct1"]
 [ext_resource type="Script" path="res://HouseDraw.gd" id="8_j5ksm"]
+[ext_resource type="Script" path="res://HandCursor.gd" id="9_26ilg"]
+[ext_resource type="Texture2D" uid="uid://c70owy75o4xd0" path="res://Hand Animation/IMG_7850-1 (dragged) Small 2.png" id="9_oevi5"]
+[ext_resource type="Texture2D" uid="uid://bvp5sa8pt6wx7" path="res://Hand Animation/IMG_7850-2 (dragged) Small.png" id="10_mhpbg"]
+[ext_resource type="Texture2D" uid="uid://cma42xeqsvkt2" path="res://Hand Animation/IMG_7850-3 (dragged) Small.png" id="11_pvpbf"]
+[ext_resource type="Texture2D" uid="uid://01of5brxhkso" path="res://Hand Animation/IMG_7850-4 (dragged) Small.png" id="12_m7qsk"]
+[ext_resource type="Texture2D" uid="uid://cvxp6ak3mdowx" path="res://Hand Animation/IMG_7850-5 (dragged) Small.png" id="13_bcs2f"]
+[ext_resource type="Texture2D" uid="uid://dovnmun5jocdu" path="res://Hand Animation/IMG_7850-6 (dragged) Small.png" id="14_uqswg"]
+[ext_resource type="Texture2D" uid="uid://dyk1omb0y5arb" path="res://Hand Animation/IMG_7850-7 (dragged) Small.png" id="15_5ta5x"]
+[ext_resource type="Texture2D" uid="uid://b802heutee5vj" path="res://Hand Animation/IMG_7850-8 (dragged) Small.png" id="16_5nnra"]
+[ext_resource type="Texture2D" uid="uid://bopkhv0lptqsy" path="res://Hand Animation/IMG_7850-9 (dragged) Small.png" id="17_11esp"]
+[ext_resource type="Texture2D" uid="uid://bbx3r3tvra3ww" path="res://Hand Animation/IMG_7850-10 (dragged) Small.png" id="18_tnjm6"]
+[ext_resource type="Texture2D" uid="uid://uh32l2bun7xs" path="res://Hand Animation/IMG_7850-11 (dragged) Small.png" id="19_hlgg4"]
+[ext_resource type="Texture2D" uid="uid://cibq6v8tmtfj4" path="res://Hand Animation/IMG_7850-12 (dragged) Small.png" id="20_tt5jf"]
+[ext_resource type="Texture2D" uid="uid://deqv6s8o1eejp" path="res://Hand Animation/IMG_7850-13 (dragged) Small.png" id="21_l8el4"]
+[ext_resource type="Texture2D" uid="uid://db23a86fmm4sq" path="res://Hand Animation/IMG_7850-14 (dragged) Small.png" id="22_u86x1"]
+[ext_resource type="Texture2D" uid="uid://cbx6ptvmlohqu" path="res://Hand Animation/IMG_7850-15 (dragged) Small.png" id="23_rjwy1"]
+[ext_resource type="Texture2D" uid="uid://c62haangco6cg" path="res://Hand Animation/IMG_7850-16 (dragged) Small.png" id="24_cskgf"]
+[ext_resource type="Texture2D" uid="uid://b3y3m72qnjxmr" path="res://Hand Animation/IMG_7850-17 (dragged) Small.png" id="25_c2w7y"]
+[ext_resource type="Texture2D" uid="uid://b76o6y38m578o" path="res://Hand Animation/IMG_7850-18 (dragged) Small.png" id="26_o7ee2"]
+[ext_resource type="Texture2D" uid="uid://chhwvsrpwsxn1" path="res://Hand Animation/IMG_7850-19 (dragged) Small.png" id="27_jem5m"]
+[ext_resource type="Texture2D" uid="uid://54ekau70xblx" path="res://Hand Animation/IMG_7850-20 (dragged) Small.png" id="28_rchoq"]
+[ext_resource type="Texture2D" uid="uid://xwds7aadm1s7" path="res://Hand Animation/IMG_7850-21 (dragged) Small.png" id="29_b4hmp"]
+[ext_resource type="Script" path="res://Cursor.gd" id="30_gdinw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktl37"]
 size = Vector2(97, 145)
@@ -26,6 +49,77 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1446, 182, 0, 0, 0, 0, 520, 101)
 }
 point_count = 2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_myroi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_oevi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mhpbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pvpbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_m7qsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bcs2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uqswg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_5ta5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5nnra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_11esp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_tnjm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_hlgg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_tt5jf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_l8el4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_u86x1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_rjwy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_cskgf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_c2w7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_o7ee2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_jem5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_rchoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_b4hmp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MainGameLoop" type="Node2D"]
 script = ExtResource("1_5w5nb")
@@ -186,6 +280,16 @@ position = Vector2(660, -1)
 [node name="Card8" type="Sprite2D" parent="HouseHand"]
 position = Vector2(770, -1)
 
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("9_26ilg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(-32, 54)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_myroi")
+frame_progress = 0.849508
+script = ExtResource("30_gdinw")
+
 [connection signal="DrawnCardScore" from="." to="ScoreBoard" method="_on_main_game_loop_drawn_card_score"]
 [connection signal="DrawnCardScoreHouse" from="." to="ScoreBoard" method="_on_main_game_loop_drawn_card_score_house"]
 [connection signal="HouseHandFull" from="." to="HouseDrawAnim/HouseDraw" method="_on_main_game_loop_house_hand_full"]
@@ -201,6 +305,7 @@ position = Vector2(770, -1)
 [connection signal="BetPlaced" from="ScoreBoard" to="." method="_on_label_bet_placed"]
 [connection signal="GameLost" from="ScoreBoard" to="." method="_on_score_board_game_lost"]
 [connection signal="GameWon" from="ScoreBoard" to="." method="_on_score_board_game_won"]
+[connection signal="HouseWantsDraw" from="ScoreBoard" to="." method="_on_score_board_house_wants_draw"]
 [connection signal="ButtonPressed" from="Button" to="." method="_on_button_button_pressed"]
 [connection signal="text_submitted" from="LineEdit" to="ScoreBoard" method="_on_line_edit_text_submitted"]
 [connection signal="text_submitted" from="LineEdit" to="LineEdit" method="_on_text_submitted"]

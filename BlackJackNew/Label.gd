@@ -9,6 +9,7 @@ signal BetPlaced
 signal GameLost
 signal GameWon
 signal GameEnded
+signal HouseWantsDraw
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,6 +40,8 @@ func _on_main_game_loop_drawn_card_score(value):
 
 
 func _on_main_game_loop_drawn_card_score_house(value):
+	if scoreHouse < score:
+		HouseWantsDraw.emit()
 	scoreHouse += value
 
 
